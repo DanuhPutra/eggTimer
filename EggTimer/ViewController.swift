@@ -9,12 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let eggTime = ["Soft" : 5, "Medium" : 7, "Rare": 12]
+    @IBOutlet weak var titleLabel: UILabel!
+    let eggTime = ["Soft" : 3, "Medium" : 7, "Hard": 12]
+    var secondRemaining = 60
+    var timer = Timer()
     @IBAction func eggPressed(_ sender: UIButton) {
+        titleLabel.text = "How do you like your eggs?"
+        timer.invalidate()
         let eggPressed = sender.currentTitle!
-        let result = eggTime[eggPressed]!
-        print(result)
-        
+        secondRemaining = eggTime[eggPressed]!
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer(){
+        if secondRemaining > 0 {
+            print("\(secondRemaining) seconds.")
+            secondRemaining -= 1
+        } else {
+            timer.invalidate()
+            titleLabel.text = "DONE!"
+        }
     }
     
 
