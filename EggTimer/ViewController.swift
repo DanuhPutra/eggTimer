@@ -9,11 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let softTime = 5
-    let mediumTime = 7
-    let rareTime = 12
+    let eggTime = ["Soft" : 5, "Medium" : 7, "Rare": 12]
     @IBAction func eggPressed(_ sender: UIButton) {
-        print(sender.currentTitle)
+        let eggPressed = sender.currentTitle!
+        let result = eggTime[eggPressed]!
+        print(result)
+        
     }
     
 
