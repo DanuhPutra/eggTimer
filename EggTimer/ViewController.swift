@@ -10,11 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
     let eggTime = ["Soft" : 3, "Medium" : 7, "Hard": 12]
     var secondRemaining = 60
     var timer = Timer()
     @IBAction func eggPressed(_ sender: UIButton) {
         titleLabel.text = "How do you like your eggs?"
+        progressBar.progress = 1.0
         timer.invalidate()
         let eggPressed = sender.currentTitle!
         secondRemaining = eggTime[eggPressed]!
