@@ -35,7 +35,7 @@ class ViewController: UIViewController {
             
         } else {
             timer.invalidate()
-            titleLabel.text = "DONE!"
+            titleLabel.text = "Selesai!"
             playAlarmSound()
         }
     }
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.play()
         } catch {
-            print("Error: Could not play alarm sound.")
+            print("Error: tidak bisa memutar alaram!")
         }
     }
     
